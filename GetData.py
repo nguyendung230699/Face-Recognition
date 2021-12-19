@@ -5,7 +5,7 @@ import os
 
 
 def insertOrUpdate(id, name):
-    conn = sqlite3.connect('C:/Users/DELL/Desktop/NDKM/data.db')
+    conn = sqlite3.connect('C:/Users/DELL/Desktop/face/Face-Recognition/data.db')
 
     query = "SELECT *FROM people WHERE ID="+ str(id)
     cusror = conn.execute(query)
@@ -41,7 +41,7 @@ while(True):
     faces = face_cascade.detectMultiScale(gray, 1.3,5)
 
     for (x,y, w, h) in faces:
-        cv2.rectangle(frame,(x,y),(x+w,y+h), (0,225,0), 2)
+        cv2.rectangle(frame,(x,y),(x+w,y+h), (0,255,0), 2)
 
         if not os.path.exists('dataset'):
             os.makedirs('dataset')

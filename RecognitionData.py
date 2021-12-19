@@ -9,10 +9,10 @@ from PIL import Image
 face_cascade =cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 
-recognizer.read('C:/Users/DELL/Desktop/NDKM/recognizer/trainningData.yml')
+recognizer.read('C:/Users/DELL/Desktop/face/Face-Recognition/recognizer/trainningData.yml')
 #get profile
 def getProfile(id):
-    conn = sqlite3.connect('C:/Users/DELL/Desktop/NDKM/data.db')
+    conn = sqlite3.connect('C:/Users/DELL/Desktop/face/Face-Recognition/data.db')
     query = "SELECT * FROM people WHERE ID="+str(id)
     cursor = conn.execute(query)
 
@@ -39,7 +39,7 @@ while (True):
         if confidence < 40 :
             profile = getProfile(id)
             if (profile!= None):
-                cv2.putText(frame,""+str(profile[1]), (x+30),(y+h+30), fontface,1,(0,255,0),2)
+                cv2.putText(frame,""+str(profile[1]), (x+10),(y+h+30), fontface,1,(0,255,0),2)
         else:
                 cv2.putText(frame,"Unknow", (x+10,y+h+30), fontface,1,(0,0,255),2)
     cv2.imshow('',frame)
