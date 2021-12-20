@@ -22,11 +22,11 @@ def getImageWithId(path):
 
     return faces, IDs
 
-
-
 faces,Ids = getImageWithId(path)
 recognizer.train(faces,np.array(Ids))
+
 if not os.path.exists('recognizer') :
     os.makedirs('recognizer')
 recognizer.save('recognizer/trainningData.yml')
+
 cv2.destroyAllWindows()

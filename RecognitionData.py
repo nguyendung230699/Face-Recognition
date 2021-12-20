@@ -39,9 +39,9 @@ while (True):
         if confidence < 40 :
             profile = getProfile(id)
             if (profile!= None):
-                cv2.putText(frame,""+str(profile[1]), (x+10),(y+h+30), fontface,1,(0,255,0),2)
+                cv2.putText(frame," "+str(profile[1]), (x+10, y+h+30), fontface,1,(0,255,0),2)
         else:
-                cv2.putText(frame,"Unknow", (x+10,y+h+30), fontface,1,(0,0,255),2)
+                cv2.putText(frame,"khong biet", (x+10,y+h+30), fontface,1,(0,0,255),2)
     cv2.imshow('',frame)
     if(cv2.waitKey(1) == ord('q')):
         break
