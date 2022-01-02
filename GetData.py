@@ -52,7 +52,7 @@ while(True):
     cv2.imshow('frame',frame)
     cv2.waitKey(10)
 
-    if sampleNum > 100 :
+    if sampleNum >= 200 :
         break
 
 cap.release()
